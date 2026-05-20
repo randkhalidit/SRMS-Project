@@ -1,0 +1,51 @@
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+/* Data Expert Task: File Management System
+   Handles saving and loading student records to/from a text file.
+   Integrates with Student class toString() for data formatting. */
+public class StudentFileManager {
+    [span_0](start_span)private static final String FILE_NAME = "students.txt";[span_0](end_span)
+
+    // Static method to save the student list to a file
+    public static void saveStudents(List<Student> students) {
+        [span_1](start_span)try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {[span_1](end_span)
+            for (Student s : students) {
+                // Uses toString() method designed by The Architect
+                [span_2](start_span)writer.write(s.toString());[span_2](end_span)
+                [span_3](start_span)writer.newLine();[span_3](end_span)
+            }
+        } catch (IOException e) {
+            [span_4](start_span)System.out.println("Error saving students: " + e.getMessage());[span_4](end_span)
+        }
+    }
+
+    // Static method to load records from the file back into the system
+    public static List<Student> loadStudents() {
+        [span_5](start_span)List<Student> students = new ArrayList<>();[span_5](end_span)
+        File file = new File(FILE_NAME);
+        
+        if (!file.exists()) return students;
+
+        [span_6](start_span)try (BufferedReader reader = new BufferedReader(new FileReader(file))) {[span_6](end_span)
+            String line;
+            [span_7](start_span)while ((line = reader.readLine()) != null) {[span_7](end_span)
+                [span_8](start_span)String[] parts = line.split(",");[span_8](end_span)
+                [span_9](start_span)if (parts.length == 5) {[span_9](end_span)
+                    // Reconstructs Student objects using the Constructor from The Architect
+                    students.add(new Student(
+                        parts[1], // name
+                        parts[0], // id
+                        Double.parseDouble(parts[2]), // gpa
+                        parts[3], // department
+                        [span_10](start_span)Integer.parseInt(parts[4]) // year[span_10](end_span)
+                    ));
+                }
+            }
+        } catch (Exception e) {
+            [span_11](start_span)System.out.println("Error loading data: " + e.getMessage());[span_11](end_span)
+        }
+        [span_12](start_span)return students;[span_12](end_span)
+    }
+}
