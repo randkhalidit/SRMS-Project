@@ -1,0 +1,28 @@
+import java.util.List;
+
+/* Main Entry Point: System Integration
+   Combines The Architect's structure with The Data Expert's logic.
+   Demonstrates the full lifecycle of the SRMS system. */
+public class MainSRMS {
+
+    public static void main(String[] args) {
+        // 1. Initialize the system (Architect's Core)
+        SRMS mySystem = new SRMS();
+
+        // 2. Load existing data from file (Data Expert's Logic)
+        [span_23](start_span)List<Student> savedData = StudentFileManager.loadStudents();[span_23](end_span)
+        mySystem.getStudents().addAll(savedData);
+
+        // 3. Start the Auto-Save background process (Multithreading)
+        [span_24](start_span)AutoSaveThread autoSave = new AutoSaveThread(mySystem);[span_24](end_span)
+        [span_25](start_span)autoSave.start();[span_25](end_span)
+
+        System.out.println("--- Student Record Management System Started ---");
+        
+        // 4. Example: Interaction using the Architect's methods
+        [span_26](start_span)mySystem.displayAllStudents();[span_26](end_span)
+
+        /* The system is now running with live data management 
+           and background thread protection. */
+    }
+}
