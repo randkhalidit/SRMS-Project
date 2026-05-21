@@ -10,7 +10,7 @@ public class StudentFileManager {
         try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_NAME))) {
             for (Student s : students) {
                
-                writer.println(s.getId() + "," + s.getName() + "," + s.getGpa() + "," + s.getDepartment() + "," + s.getYear());
+                writer.println(s);
             }
         } catch (IOException e) {
             System.out.println("Error saving to file: " + e.getMessage());
