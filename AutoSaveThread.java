@@ -1,7 +1,5 @@
 public class AutoSaveThread extends Thread {
     private SRMS system;
-
-
     public AutoSaveThread(SRMS system) {
         this.system = system;
     }
@@ -23,3 +21,4 @@ public class AutoSaveThread extends Thread {
             }
         }
     }
+}
