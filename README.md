@@ -7,7 +7,7 @@ Console-based Java system for Qassim University demonstrating OOP, file manageme
 * **Role 3 (Salwa):** Programmed search reports (GPA, department, year) and managed GitHub.
 
 
-# OOP Principles Applied
+## OOP Principles Applied
 * **Inheritance:** Student extends Person.
 * **Encapsulation:** Private fields with getters and setters.
 * **Polymorphism:** Overridden displayInfo() method.
