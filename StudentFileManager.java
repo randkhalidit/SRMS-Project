@@ -28,7 +28,7 @@ public class StudentFileManager {
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length == 5) {
-                    int id = Integer.parseInt(parts[0]);
+                    String id = parts[0];
                     String name = parts[1];
                     double gpa = Double.parseDouble(parts[2]);
                     String dept = parts[3];
