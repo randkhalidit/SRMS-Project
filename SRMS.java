@@ -123,4 +123,39 @@ public class SRMS {
     public List<Student> getStudents() {
         return students;
     }
+    
+    public void displayStudentsByGpa(double minGpa) {
+        System.out.println("\n--- [Report] Students with GPA >= " + minGpa + " ---");
+        boolean found = false;
+        
+        for (Student s : students) {
+            if (s.getGpa() >= minGpa) {
+                s.displayInfo();
+                found = false;
+                found = true;
+            }
+        }
+        
+        if (!found) {
+            System.out.println("No student records match the criteria.");
+        }
+    }
+
+  
+    public void displayStudentsByDepartment(String dept) {
+        System.out.println("\n--- [Report] Students in Department: " + dept + " ---");
+        boolean found = false;
+        
+        for (Student s : students) {
+            
+            if (s.getDepartment().equalsIgnoreCase(dept)) {
+                s.displayInfo();
+                found = true;
+            }
+        }
+        
+        if (!found) {
+            System.out.println("No student records found for department: " + dept);
+        }
+    }
 }
