@@ -19,5 +19,7 @@ public class Main {
         mySystem.displayStudentsByYear(2026);
         
         System.out.println("Testing Complete. Auto-Save Active in Background.");
+        mySystem.addStudent(
+    new Student("Maha", "101", 4.7, "IT", 2026) );
     }
 }

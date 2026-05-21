@@ -131,8 +131,7 @@ public class SRMS {
         for (Student s : students) {
             if (s.getGpa() >= minGpa) {
                 s.displayInfo();
-                found = false;
-                found = true;
+                 found = true;
             }
         }
         
@@ -153,9 +152,31 @@ public class SRMS {
                 found = true;
             }
         }
-        
         if (!found) {
             System.out.println("No student records found for department: " + dept);
         }
     }
+     public void displayStudentsByYear(int year) {
+
+    System.out.println(
+        "\n--- [Report] Students in Year: "
+        + year +
+        " ---"
+    );
+
+    boolean found = false;
+    for (Student s : students) {
+        if (s.getYear() == year) {
+            s.displayInfo();
+            found = true;
+        }
+    }
+    if (!found) {
+
+        System.out.println(
+            "No student records found for year: "
+            + year
+        );
+    }
+}
 }
